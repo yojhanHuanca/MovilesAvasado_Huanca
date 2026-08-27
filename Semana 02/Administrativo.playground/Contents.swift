@@ -82,3 +82,27 @@ if usuarioSuspendido {
 }
 
 
+print()
+print("=== RESULTADOS FINALES ===")
+print("Título del libro: \(titulo)")
+print("Tipo de usuario: \(tipoUsuario)")
+print("Fecha de préstamo: \(fechaPrestamoStr)")
+print("Fecha de devolución: \(fechaDevolucionStr)")
+print("Días prestados: \(diasPrestamo)")
+print("Días permitidos: \(diasPermitidos)")
+print("Días de atraso: \(diasAtraso)")
+print(String(format: "Multa total: S/ %.2f", multaTotal))
+
+if diasAtraso == 0 {
+    print("Estado: Devuelto a tiempo")
+} else {
+    print("Estado: Devuelto con atraso")
+}
+
+if usuarioSuspendido {
+    print("Situación del usuario: Suspendido")
+} else {
+    print("Situación del usuario: Habilitado")
+}
+
+
