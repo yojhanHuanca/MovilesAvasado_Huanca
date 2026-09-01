@@ -79,3 +79,45 @@ if datosValidos {
     print("TOTAL FINAL: S/. \(totalFinal)")
     print("Puntos de fidelidad ganados: \(puntosGanados)")
 }
+
+
+
+// ============================================
+// EJERCICIO 7: JUEGO DE ADIVINANZA (asistido por IA)
+// ============================================
+
+let numeroSecreto = 42                                            // número que hay que adivinar, fijo
+
+// simulamos los intentos con variables porque en Playground no se puede pedir input real
+let intento1 = 20
+let intento2 = 50
+let intento3 = 35
+let intento4 = 45
+let intento5 = 42                                                 // este intento sí acierta
+
+let intentos = [intento1, intento2, intento3, intento4, intento5] // los junto para recorrerlos con un índice
+
+var indiceActual = 0
+var adivinado = false
+
+while indiceActual < intentos.count && !adivinado {               // sigue mientras haya intentos y no haya acertado
+    let intentoActual = intentos[indiceActual]
+    let numeroDeIntento = indiceActual + 1                         // para mostrar "intento 1" en vez de "intento 0"
+
+    if intentoActual == numeroSecreto {
+        print("Intento \(numeroDeIntento): \(intentoActual) -> ¡Correcto!")
+        adivinado = true                                           // esto corta el while en la siguiente vuelta
+    } else if intentoActual > numeroSecreto {
+        print("Intento \(numeroDeIntento): \(intentoActual) -> Muy alto")
+    } else {
+        print("Intento \(numeroDeIntento): \(intentoActual) -> Muy bajo")
+    }
+
+    indiceActual += 1
+}
+
+if adivinado {
+    print("¡Lo lograste en \(indiceActual) intento(s)!")           // indiceActual quedó con el total de intentos usados
+} else {
+    print("Perdiste. El número era: \(numeroSecreto)")
+}
