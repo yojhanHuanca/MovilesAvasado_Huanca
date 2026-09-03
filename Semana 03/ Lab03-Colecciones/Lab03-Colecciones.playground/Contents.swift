@@ -59,3 +59,54 @@ var nombres = ["Ana", "Carlos", "Beto"]
 print(nombres.sorted()) // PREDICT 3: ["Ana", "beto", "Carlos"]
 print(nombres) // PREDICT 4: ["Ana", "Carlos", "Beto"]
 
+
+
+
+
+// Desarrollado por: Huanca Yojhan
+import Foundation
+// ===== TODO 4: Catálogo de productos =====
+var productos: [String: Double] = [:]
+for i in 1...4 {
+print("Producto \(i) - Nombre:")
+let nombre = readLine() ?? ""
+print("Precio:")
+let precio = Double(readLine() ?? "") ?? 0
+productos[nombre] = precio
+}
+
+// ===== TODO 5: Mostrar catálogo =====
+print("===== CATÁLOGO =====")
+for (nombre, precio) in productos {
+print("\(nombre): S/. \(precio)")
+}
+// ===== TODO 6: Valor total =====
+var valorTotal = 0.0
+for (_, precio) in productos {
+valorTotal += precio
+}
+print("Valor total: S/. \(valorTotal)")
+// ===== TODO 7: Buscar producto =====
+print("Buscar producto:")
+let buscarProd = readLine() ?? ""
+if let precioEncontrado = productos[buscarProd] {
+print("\(buscarProd) cuesta S/. \(precioEncontrado)")
+} else {
+print("Producto no encontrado")
+}
+
+// ===== ANALYZE =====
+var edades: [String: Int] = ["Ana": 20, "Luis": 22, "María": 19]
+var mayores: [String] = []
+for (nombre, edad) in edades {
+if edad >= 21 {
+mayores.append(nombre)
+}
+}
+print("Mayores de 21: \(mayores)")
+
+// ANALYZE 1: ¿Qué hace?
+// Recorre el diccionario de edades evalúa si la edad de cada persona es mayor o igual a 21 y de ser así, agrega su nombre al arreglo 'mayores'.
+
+// ANALYZE 1: ¿Qué imprime?
+// Imprime: Mayores de 21: Luis
