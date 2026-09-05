@@ -1,7 +1,3 @@
-# Prompts - Lab 03
-
-## Docente: Juan Leon - Tecsup
-## Herramienta: Claude
 
 ## Ejercicio 6 - Gestión de notas
 
@@ -20,11 +16,8 @@ FORMATO: Dame el código completo en un solo bloque, listo para pegar en el Play
 
 EJEMPLO: No tengo, hazlo desde cero.
 
-### Funciono a la primera?
-[Si/No - completa con lo que realmente paso]
 
-### La IA uso algo que no conocias?
-[Ej: reduce(), sorted con closure { $0.value > $1.value } - completa con lo que investigaste tu]
+
 
 ## Ejercicio 7 - Inventario con menu
 
