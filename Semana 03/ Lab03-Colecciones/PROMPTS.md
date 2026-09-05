@@ -37,8 +37,3 @@ FORMATO: Codigo completo en un solo bloque, listo para pegar en el Playground, e
 
 EJEMPLO: No tengo, hazlo desde cero.
 
-### Funciono a la primera?
-[Si/No - completa con lo que realmente paso]
-
-### La IA uso algo que no conocias?
-[Ej: while !salir con una bandera booleana, string multilinea con comillas triples - completa con lo que investigaste tu]
