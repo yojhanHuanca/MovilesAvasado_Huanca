@@ -64,3 +64,82 @@ print("\n===== RANKING POR PROMEDIO =====")
 for (nombre, promedio) in ordenados {
     print("\(nombre): \(promedio)")
 }
+
+
+// ============================================
+// EJERCICIO 7: INVENTARIO CON MENU (asistido por IA)
+// ============================================
+
+var preciosInv: [String: Double] = [:]                      // diccionario nombre -> precio
+var stocksInv: [String: Int] = [:]                            // diccionario nombre -> stock
+
+print("¿Cuántos productos va a registrar?")                   // pregunta cuántos productos entran al inventario
+let totalProd = Int(readLine() ?? "") ?? 0                     // convierte a Int, 0 si falla
+
+for i in 1...totalProd {                                       // repite una vez por producto
+    print("\nProducto \(i) - Nombre:")
+    let nombre = readLine() ?? ""                                // lee el nombre del producto
+    print("Precio:")
+    let precio = Double(readLine() ?? "") ?? 0                   // lee y convierte el precio
+    print("Stock:")
+    let stock = Int(readLine() ?? "") ?? 0                        // lee y convierte el stock
+    preciosInv[nombre] = precio                                   // guarda el precio en el diccionario
+    stocksInv[nombre] = stock                                     // guarda el stock en el diccionario
+}
+
+var salir = false                                               // bandera que controla cuándo terminar el menú
+
+while !salir {                                                   // se repite mientras la bandera siga en false
+    print("""
+
+    ===== MENU INVENTARIO =====
+    1) Ver inventario
+    2) Buscar producto
+    3) Ver stock bajo (< 5)
+    4) Ver valor total
+    5) Salir
+    """)                                                           // muestra las opciones del menú (string multilínea)
+    print("Elige una opción:")
+    let opcion = Int(readLine() ?? "") ?? 0                         // lee la opción elegida como número
+
+    switch opcion {                                                 // decide qué hacer según la opción
+    case 1:                                                         // opción 1: ver todo el inventario
+        print("\n===== INVENTARIO =====")
+        for (nombre, precio) in preciosInv {                         // recorre cada producto
+            let stock = stocksInv[nombre] ?? 0                        // obtiene su stock (0 si no existiera)
+            print("\(nombre): S/. \(precio) - Stock: \(stock)")
+        }
+
+    case 2:                                                         // opción 2: buscar un producto puntual
+        print("Nombre del producto a buscar:")
+        let buscar = readLine() ?? ""                                 // lee el nombre a buscar
+        if let precio = preciosInv[buscar], let stock = stocksInv[buscar] {   // busca en ambos diccionarios de forma segura
+            print("\(buscar): S/. \(precio) - Stock: \(stock)")
+        } else {
+            print("Producto no encontrado")
+        }
+
+    case 3:                                                         // opción 3: productos con poco stock
+        print("\n===== STOCK BAJO (< 5) =====")
+        for (nombre, stock) in stocksInv {                            // recorre los stocks
+            if stock < 5 {                                             // filtra solo los bajos
+                print("\(nombre): \(stock) unidades")
+            }
+        }
+
+    case 4:                                                         // opción 4: valor total del inventario
+        var valorTotal = 0.0                                          // acumulador del valor total
+        for (nombre, precio) in preciosInv {                           // recorre cada producto
+            let stock = stocksInv[nombre] ?? 0                          // obtiene su stock
+            valorTotal += precio * Double(stock)                        // suma precio x stock al total
+        }
+        print("Valor total del inventario: S/. \(valorTotal)")
+
+    case 5:                                                         // opción 5: terminar el programa
+        print("Saliendo del sistema de inventario...")
+        salir = true                                                  // apaga la bandera para que el while termine
+
+    default:                                                        // cualquier número que no sea 1-5
+        print("Opción no válida")
+    }
+}
