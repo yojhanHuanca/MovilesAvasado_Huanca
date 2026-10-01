@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CDFBE542306EDCEA0048C18F /* ClienteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFBE541306EDCEA0048C18F /* ClienteModel.swift */; };
+		CDFBE544306EDDBA0048C18F /* ViewControllerConfirmacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFBE543306EDDBA0048C18F /* ViewControllerConfirmacion.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CDFBE529306EDC680048C18F /* Semana06_02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semana06_02.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDFBE541306EDCEA0048C18F /* ClienteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClienteModel.swift; sourceTree = "<group>"; };
+		CDFBE543306EDDBA0048C18F /* ViewControllerConfirmacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfirmacion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +52,8 @@
 		CDFBE520306EDC680048C18F = {
 			isa = PBXGroup;
 			children = (
+				CDFBE541306EDCEA0048C18F /* ClienteModel.swift */,
+				CDFBE543306EDDBA0048C18F /* ViewControllerConfirmacion.swift */,
 				CDFBE52B306EDC680048C18F /* Semana06_02 */,
 				CDFBE52A306EDC680048C18F /* Products */,
 			);
@@ -132,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFBE542306EDCEA0048C18F /* ClienteModel.swift in Sources */,
+				CDFBE544306EDDBA0048C18F /* ViewControllerConfirmacion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
