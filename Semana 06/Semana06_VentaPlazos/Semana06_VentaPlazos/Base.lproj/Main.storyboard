@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav">
+  <device id="retina6_12" orientation="portrait" appearance="light" />
+  <dependencies>
+    <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084" />
+    <capability name="Safe area layout guides" minToolsVersion="9.0" />
+  </dependencies>
+  <scenes>
+    <scene sceneID="nav-scene">
+      <objects>
+        <navigationController id="nav" sceneMemberID="viewController">
+          <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar">
+            <rect key="frame" x="0" y="0" width="393" height="44" />
+          </navigationBar>
+          <connections>
+            <segue destination="new" kind="relationship" relationship="rootViewController" id="nav-root" />
+          </connections>
+        </navigationController>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="nav-responder" sceneMemberID="firstResponder" />
+      </objects>
+    </scene>
+    <scene sceneID="new-scene">
+      <objects>
+        <viewController id="new" customClass="NuevaVentaViewController" customModule="Semana06_VentaPlazos" customModuleProvider="target" sceneMemberID="viewController">
+          <view key="view" contentMode="scaleToFill" id="new-view">
+            <rect key="frame" x="0" y="0" width="393" height="852" />
+            <subviews>
+              <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="new-stack">
+                <subviews>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Electrodoméstico" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="input-label-0">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Ej. Refrigeradora" translatesAutoresizingMaskIntoConstraints="NO" id="tfElectrodomestico">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                    <textInputTraits key="textInputTraits" keyboardType="default" autocorrectionType="no" />
+                  </textField>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Precio unitario (S/.)" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="input-label-1">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Ej. 1000" translatesAutoresizingMaskIntoConstraints="NO" id="tfPrecioUnitario">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" autocorrectionType="no" />
+                  </textField>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Cantidad" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="input-label-2">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Ej. 2" translatesAutoresizingMaskIntoConstraints="NO" id="tfCantidad">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" autocorrectionType="no" />
+                  </textField>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Número de meses" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="input-label-3">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Ej. 12" translatesAutoresizingMaskIntoConstraints="NO" id="tfMeses">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" autocorrectionType="no" />
+                  </textField>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Tasa de interés mensual (%)" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="input-label-4">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Ej. 2" translatesAutoresizingMaskIntoConstraints="NO" id="tfTasaInteresMensual">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" autocorrectionType="no" />
+                  </textField>
+                  <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="calculate">
+                    <state key="normal" title="Calcular" />
+                    <connections>
+                      <segue destination="result" kind="show" identifier="showResultado" id="show-result" />
+                    </connections>
+                  </button>
+                </subviews>
+              </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="new-safe" />
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
+            <constraints>
+              <constraint firstItem="new-stack" firstAttribute="leading" secondItem="new-safe" secondAttribute="leading" constant="24" id="new-leading" />
+              <constraint firstItem="new-stack" firstAttribute="top" secondItem="new-safe" secondAttribute="top" constant="24" id="new-top" />
+              <constraint firstItem="new-stack" firstAttribute="trailing" secondItem="new-safe" secondAttribute="trailing" constant="-24" id="new-trailing" />
+              <constraint firstItem="new-stack" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="new-safe" secondAttribute="bottom" constant="-16" id="new-bottom" />
+            </constraints>
+          </view>
+          <navigationItem key="navigationItem" title="Nueva Venta" id="new-title" />
+          <connections>
+            <outlet property="tfElectrodomestico" destination="tfElectrodomestico" id="outlet-tfElectrodomestico" />
+            <outlet property="tfPrecioUnitario" destination="tfPrecioUnitario" id="outlet-tfPrecioUnitario" />
+            <outlet property="tfCantidad" destination="tfCantidad" id="outlet-tfCantidad" />
+            <outlet property="tfMeses" destination="tfMeses" id="outlet-tfMeses" />
+            <outlet property="tfTasaInteresMensual" destination="tfTasaInteresMensual" id="outlet-tfTasaInteresMensual" />
+          </connections>
+        </viewController>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="new-responder" sceneMemberID="firstResponder" />
+      </objects>
+    </scene>
+    <scene sceneID="result-scene">
+      <objects>
+        <viewController id="result" customClass="ResultadoViewController" customModule="Semana06_VentaPlazos" customModuleProvider="target" sceneMemberID="viewController">
+          <view key="view" contentMode="scaleToFill" id="result-view">
+            <rect key="frame" x="0" y="0" width="393" height="852" />
+            <subviews>
+              <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="result-stack">
+                <subviews>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Subtotal" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-0">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblSubtotal">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="IGV (18 %)" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-1">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblIGV">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Monto base" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-2">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblBase">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Intereses totales" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-3">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblIntereses">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total a pagar" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-4">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblTotal">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Cuota mensual" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="result-label-5">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17" />
+                  </label>
+                  <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="S/. 0.00" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="lblCuota">
+                    <fontDescription key="fontDescription" type="system" pointSize="17" />
+                  </label>
+                </subviews>
+              </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="result-safe" />
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
+            <constraints>
+              <constraint firstItem="result-stack" firstAttribute="leading" secondItem="result-safe" secondAttribute="leading" constant="24" id="result-leading" />
+              <constraint firstItem="result-stack" firstAttribute="top" secondItem="result-safe" secondAttribute="top" constant="24" id="result-top" />
+              <constraint firstItem="result-stack" firstAttribute="trailing" secondItem="result-safe" secondAttribute="trailing" constant="-24" id="result-trailing" />
+              <constraint firstItem="result-stack" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="result-safe" secondAttribute="bottom" constant="-16" id="result-bottom" />
+            </constraints>
+          </view>
+          <navigationItem key="navigationItem" title="Resultado" id="result-title" />
+          <connections>
+            <outlet property="lblSubtotal" destination="lblSubtotal" id="outlet-lblSubtotal" />
+            <outlet property="lblIGV" destination="lblIGV" id="outlet-lblIGV" />
+            <outlet property="lblBase" destination="lblBase" id="outlet-lblBase" />
+            <outlet property="lblIntereses" destination="lblIntereses" id="outlet-lblIntereses" />
+            <outlet property="lblTotal" destination="lblTotal" id="outlet-lblTotal" />
+            <outlet property="lblCuota" destination="lblCuota" id="outlet-lblCuota" />
+          </connections>
+        </viewController>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="result-responder" sceneMemberID="firstResponder" />
+      </objects>
+    </scene>
+  </scenes>
+</document>
