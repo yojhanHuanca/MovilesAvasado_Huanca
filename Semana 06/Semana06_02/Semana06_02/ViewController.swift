@@ -1,48 +1,36 @@
-//
-//  ViewController.swift
-//  Semana06_02
-//
-//  Created by Tecsup on 1/10/26.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tfApellido: UITextField!
-    
     @IBOutlet weak var tfNombre: UITextField!
-    
     @IBOutlet weak var tfDni: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
     }
-    
-    
-    
+
+    // Acción del botón: Se deja vacía porque el Segue sale directamente
+    // del botón en el Storyboard y se activa solo.
     @IBAction func btnContinuar(_ sender: Any) {
-        let oCliente: ClienteModel = ClienteModel(
-            pCodigo: 0,
-            pApellido: self.tfApellido.text!,
-            pNombre: self.tfNombre.text!,
-            pDni: self.tfDni.text!
-        )
-        
-        // crear el Storyboard con el nombre Main, se asocia a la pantalla 2
-        // le pasamos los datos del cliente
-        let osb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let oPantalla2 = osb.instantiateViewController(identifier: "ViewControllerConfirmacion") as! ViewControllerConfirmacion
-        
-        oPantalla2.pCliente = oCliente
-        
-    self.navigationController?.pushViewController(oPantalla2, animated: true)
-
     }
-    
 
+    // Este método lo ejecuta Swift AUTOMÁTICAMENTE antes de cambiar de pantalla
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sgConfirmacion" {
+            if let oPantalla2 = segue.destination as? ViewControllerConfirmacion {
+                
+                // 1. Armamos el objeto con los datos tipeados
+                let oCliente = ClienteModel(
+                    pCodigo: 0,
+                    pApellido: self.tfApellido.text ?? "",
+                    pNombre: self.tfNombre.text ?? "",
+                    pDni: self.tfDni.text ?? ""
+                )
+                
+                // 2. Le pasamos el cliente a la segunda pantalla
+                oPantalla2.pCliente = oCliente
+            }
+        }
+    }
 }
-

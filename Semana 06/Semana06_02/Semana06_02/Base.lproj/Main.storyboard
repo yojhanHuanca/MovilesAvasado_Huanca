@@ -76,6 +76,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Continuar"/>
                                 <connections>
                                     <action selector="btnContinuar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PbX-Mu-7o7"/>
+                                    <segue destination="TQT-wo-guy" kind="show" identifier="sgConfirmacion" id="cTZ-Af-0wI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -91,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959.5419847328244" y="69.718309859154928"/>
+            <point key="canvasLocation" x="963" y="70"/>
         </scene>
         <!--View Controller Confirmacion-->
         <scene sceneID="7xN-0L-cI5">
@@ -170,11 +171,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00Y-5z-qqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588.5496183206105" y="77.464788732394368"/>
+            <point key="canvasLocation" x="1825" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VBj-4z-iEk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efb-iT-akT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ikD-RZ-DE9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xme-4L-7nV">
@@ -183,10 +185,9 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AuB-Cr-dgz"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2cD-Yg-83M"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Efb-iT-akT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.824427480916029" y="69.718309859154928"/>
         </scene>
