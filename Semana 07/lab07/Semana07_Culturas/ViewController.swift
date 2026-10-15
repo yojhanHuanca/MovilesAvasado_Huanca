@@ -8,35 +8,43 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    // lista de Profesores
-        var listaProfesores = [
-            Profesor(nombre: "Jaime Gomez", cargo: "Coordinador de Software", foto: UIImage(named: "avatar1")),
-            Profesor(nombre: "Jaime Farfan", cargo: "Docente de Software TC", foto: UIImage(named: "avatar2")),
-            Profesor(nombre: "Juan León", cargo: "Docente de Software TC", foto: UIImage(named: "avatar4")),
-            Profesor(nombre: "Silvia Montoya", cargo: "Docente de Software TC", foto: UIImage(named: "avatar3")),
-            Profesor(nombre: "Theobaldo Diaz", cargo: "Docente de Software TC", foto: UIImage(named: "avatar5")),
-            Profesor(nombre: "Elliot Garamendi", cargo: "Docente de Software TC", foto: UIImage(named: "avatar4")),
-            Profesor(nombre: "Edwin Huerto", cargo: "Docente de Redes TC", foto: UIImage(named: "avatar2"))
+    @IBOutlet private weak var tablaCulturas: UITableView!
+
+    private let listaCulturas = [
+        Cultura(nombre: "Caral", region: "Valle de Supe, Lima", descripcion: "Caral fue una de las civilizaciones mas antiguas de America. Sus habitantes construyeron una ciudad con plazas y edificios ceremoniales en el valle de Supe.", foto: UIImage(named: "imagen1")),
+        Cultura(nombre: "Chavin", region: "Ancash", descripcion: "Chavin de Huantar fue un importante centro ceremonial. Su arte en piedra y sus galerias muestran la influencia que esta cultura tuvo en los Andes.", foto: UIImage(named: "imagen2")),
+        Cultura(nombre: "Nazca", region: "Ica", descripcion: "La cultura Nazca es conocida por sus geoglifos trazados en el desierto y por su ceramica de muchos colores. Tambien desarrollo sistemas para aprovechar el agua.", foto: UIImage(named: "imagen3")),
+        Cultura(nombre: "Moche", region: "La Libertad y Lambayeque", descripcion: "Los Moche destacaron por sus ceramicas, sus trabajos en metal y sus canales de irrigacion. En esta region se encuentran las tumbas del Senor de Sipan.", foto: UIImage(named: "imagen4")),
+        Cultura(nombre: "Inca", region: "Cusco y los Andes", descripcion: "Los incas organizaron el Tahuantinsuyo desde Cusco y conectaron sus territorios con una extensa red de caminos conocida como Qhapaq Nan.", foto: UIImage(named: "imagen5"))
         ]
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listaProfesores.count
+        return listaCulturas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // crear un objeto para que se muestre en la celda
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celda")!
-        cell.textLabel?.text = listaProfesores[indexPath.row].nombre
-        cell.detailTextLabel?.text = String(listaProfesores[indexPath.row].cargo)
-        cell.imageView?.image = listaProfesores[indexPath.row].foto!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
+        let cultura = listaCulturas[indexPath.row]
+        cell.textLabel?.text = cultura.nombre
+        cell.detailTextLabel?.text = cultura.region
+        cell.imageView?.image = cultura.foto
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "Culturas Peruanas"
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "detalleCulturaSegue",
+              let detalle = segue.destination as? DetalleCulturaViewController,
+              let celda = sender as? UITableViewCell,
+              let indexPath = tablaCulturas.indexPath(for: celda) else { return }
+
+        detalle.cultura = listaCulturas[indexPath.row]
+    }
 
 }
 
