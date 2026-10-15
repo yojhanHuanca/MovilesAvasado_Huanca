@@ -35,11 +35,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KrK-Zb-HCi">
                                 <rect key="frame" x="0.0" y="172" width="393" height="612"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celda" textLabel="Mar-Uj-czn" detailTextLabel="z1R-QE-aZD" style="IBUITableViewCellStyleSubtitle" id="haZ-WG-UoN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celda" textLabel="Mar-Uj-czn" detailTextLabel="z1R-QE-aZD" style="IBUITableViewCellStyleSubtitle" id="haZ-WG-UoN">
                                         <rect key="frame" x="0.0" y="50" width="393" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="haZ-WG-UoN" id="lAJ-ew-zUE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mar-Uj-czn">
@@ -58,9 +58,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="detalle-Cultura" kind="show" identifier="detalleCulturaSegue" id="segue-detalle-Cultura"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -79,7 +76,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tablaCulturas" destination="KrK-Zb-HCi" id="outlet-tablaCulturas"/>
+                        <segue destination="detalle-Cultura" kind="show" identifier="detalleCulturaSegue" id="segue-detalle-Cultura"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,17 +90,178 @@
                     <view key="view" contentMode="scaleToFill" id="vista-detalle-Cultura">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="safearea-detalle-Cultura"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="300" sectionHeaderHeight="28" estimatedSectionHeaderHeight="28" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tabla-detalle-cultura">
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" reuseIdentifier="detalleCulturaHeader" rowHeight="360" style="IBUITableViewCellStyleDefault" id="culture-header-cell" customClass="CulturaHeaderCell" customModule="Semana07_Culturas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="360"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="culture-header-cell" id="culture-header-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="360"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="culture-header-stack">
+                                                    <rect key="frame" x="16" y="16" width="361" height="328"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="header-culture-image">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="180"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="180" id="header-culture-image-height"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" text="Nombre de la cultura" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="header-culture-name">
+                                                            <rect key="frame" x="0.0" y="192" width="361" height="45.666666666666657"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                            <nil key="textColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" text="Región" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="header-culture-region">
+                                                            <rect key="frame" x="0.0" y="249.66666666666671" width="361" height="19.333333333333343"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="header-description-heading">
+                                                            <rect key="frame" x="0.0" y="281" width="361" height="15.666666666666686"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" text="Descripción de la cultura" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="header-culture-description">
+                                                            <rect key="frame" x="0.0" y="308.66666666666669" width="361" height="19.333333333333314"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="culture-header-stack" secondAttribute="bottom" constant="16" id="culture-header-bottom"/>
+                                                <constraint firstItem="culture-header-stack" firstAttribute="leading" secondItem="culture-header-content" secondAttribute="leading" constant="16" id="culture-header-leading"/>
+                                                <constraint firstItem="culture-header-stack" firstAttribute="top" secondItem="culture-header-content" secondAttribute="top" constant="16" id="culture-header-top"/>
+                                                <constraint firstAttribute="trailing" secondItem="culture-header-stack" secondAttribute="trailing" constant="16" id="culture-header-trailing"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagenCultura" destination="header-culture-image" id="header-image-outlet"/>
+                                            <outlet property="labelDescripcionCultura" destination="header-culture-description" id="header-description-outlet"/>
+                                            <outlet property="labelNombreCultura" destination="header-culture-name" id="header-name-outlet"/>
+                                            <outlet property="labelRegionCultura" destination="header-culture-region" id="header-region-outlet"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tema" textLabel="topic-cell-title" style="IBUITableViewCellStyleDefault" id="topic-cell">
+                                        <rect key="frame" x="0.0" y="410" width="393" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="topic-cell" id="topic-cell-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Tema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="topic-cell-title">
+                                                    <rect key="frame" x="20" y="0.0" width="334.66666666666669" height="51"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="detalle-Cultura" id="detalle-table-data-source"/>
+                                    <outlet property="delegate" destination="detalle-Cultura" id="detalle-table-delegate"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="detail-safe-area"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="detail-safe-area" firstAttribute="bottom" secondItem="tabla-detalle-cultura" secondAttribute="bottom" id="detail-table-bottom"/>
+                            <constraint firstItem="tabla-detalle-cultura" firstAttribute="leading" secondItem="detail-safe-area" secondAttribute="leading" id="detail-table-leading"/>
+                            <constraint firstItem="tabla-detalle-cultura" firstAttribute="top" secondItem="detail-safe-area" secondAttribute="top" id="detail-table-top"/>
+                            <constraint firstItem="detail-safe-area" firstAttribute="trailing" secondItem="tabla-detalle-cultura" secondAttribute="trailing" id="detail-table-trailing"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="navigationItem-detalle-Cultura"/>
+                    <connections>
+                        <outlet property="tablaDetalle" destination="tabla-detalle-cultura" id="detalle-table-outlet"/>
+                        <segue destination="detalle-Tema" kind="show" identifier="detalleTemaSegue" id="segue-detalle-Tema"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="firstResponder-detalle-Cultura" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="89"/>
+            <point key="canvasLocation" x="970" y="89"/>
+        </scene>
+        <!--Detalle Tema View Controller-->
+        <scene sceneID="detalle-Tema-scene">
+            <objects>
+                <viewController id="detalle-Tema" customClass="DetalleTemaViewController" customModule="Semana07_Culturas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tema-root-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tema-detail-scroll">
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <subviews>
+                                    <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tema-detail-stack">
+                                        <rect key="frame" x="20" y="23.999999999999993" width="353" height="100.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Título del tema" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tema-title-label">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="33.666666666666664"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tema-description-heading">
+                                                <rect key="frame" x="0.0" y="49.666666666666657" width="353" height="14.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Descripción del tema" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tema-description-label">
+                                                <rect key="frame" x="0.0" y="80" width="353" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tema-scroll-content" firstAttribute="width" secondItem="tema-scroll-frame" secondAttribute="width" id="tema-content-width"/>
+                                    <constraint firstItem="tema-detail-stack" firstAttribute="bottom" secondItem="tema-scroll-content" secondAttribute="bottom" constant="-24" id="tema-stack-bottom"/>
+                                    <constraint firstItem="tema-detail-stack" firstAttribute="leading" secondItem="tema-scroll-content" secondAttribute="leading" constant="20" id="tema-stack-leading"/>
+                                    <constraint firstItem="tema-detail-stack" firstAttribute="top" secondItem="tema-scroll-content" secondAttribute="top" constant="24" id="tema-stack-top"/>
+                                    <constraint firstItem="tema-detail-stack" firstAttribute="trailing" secondItem="tema-scroll-content" secondAttribute="trailing" constant="-20" id="tema-stack-trailing"/>
+                                    <constraint firstItem="tema-detail-stack" firstAttribute="width" secondItem="tema-scroll-frame" secondAttribute="width" constant="-40" id="tema-stack-width"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="tema-scroll-content"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="tema-scroll-frame"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tema-root-safe-area"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tema-root-safe-area" firstAttribute="bottom" secondItem="tema-detail-scroll" secondAttribute="bottom" id="tema-scroll-bottom"/>
+                            <constraint firstItem="tema-detail-scroll" firstAttribute="leading" secondItem="tema-root-safe-area" secondAttribute="leading" id="tema-scroll-leading"/>
+                            <constraint firstItem="tema-detail-scroll" firstAttribute="top" secondItem="tema-root-safe-area" secondAttribute="top" id="tema-scroll-top"/>
+                            <constraint firstItem="tema-root-safe-area" firstAttribute="trailing" secondItem="tema-detail-scroll" secondAttribute="trailing" id="tema-scroll-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tema-navigation-item"/>
+                    <connections>
+                        <outlet property="labelDescripcionTema" destination="tema-description-label" id="tema-description-outlet"/>
+                        <outlet property="labelTituloTema" destination="tema-title-label" id="tema-title-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tema-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="89"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

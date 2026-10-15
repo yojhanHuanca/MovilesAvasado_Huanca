@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet private weak var tablaCulturas: UITableView!
+    private var culturaSeleccionada: Cultura?
 
     private let listaCulturas = [
         Cultura(nombre: "Caral", region: "Valle de Supe, Lima", descripcion: "Caral fue una de las civilizaciones mas antiguas de America. Sus habitantes construyeron una ciudad con plazas y edificios ceremoniales en el valle de Supe.", foto: UIImage(named: "imagen1")),
@@ -37,13 +37,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         title = "Culturas Peruanas"
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        culturaSeleccionada = listaCulturas[indexPath.row]
+        performSegue(withIdentifier: "detalleCulturaSegue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detalleCulturaSegue",
               let detalle = segue.destination as? DetalleCulturaViewController,
-              let celda = sender as? UITableViewCell,
-              let indexPath = tablaCulturas.indexPath(for: celda) else { return }
+              let culturaSeleccionada else { return }
 
-        detalle.cultura = listaCulturas[indexPath.row]
+        detalle.cultura = culturaSeleccionada
     }
 
 }
