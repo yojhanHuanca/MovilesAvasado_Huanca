@@ -68,7 +68,6 @@ final class ClientsViewController: UITableViewController, UISearchResultsUpdatin
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         presentClientForm(client: visibleClients[indexPath.row])
     }
 
