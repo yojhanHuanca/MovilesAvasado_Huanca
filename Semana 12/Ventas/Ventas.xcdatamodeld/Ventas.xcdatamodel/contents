@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23000" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES" codeGenerationType="manual/none">
+        <attribute name="clave" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nombre" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <attribute name="rol" attributeType="String" defaultValueString="Vendedor" usesScalarValueType="NO"/>
+        <attribute name="usuario" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <relationship name="ventas" toMany="YES" deletionRule="Deny" destinationEntity="Venta" inverseName="vendedor" inverseEntity="Venta"/>
+    </entity>
+    <entity name="Producto" representedClassName="Producto" syncable="YES" codeGenerationType="manual/none">
+        <attribute name="categoria" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nombre" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <attribute name="precio" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stock" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ventas" toMany="YES" deletionRule="Deny" destinationEntity="Venta" inverseName="producto" inverseEntity="Venta"/>
+    </entity>
+    <entity name="Cliente" representedClassName="Cliente" syncable="YES" codeGenerationType="manual/none">
+        <attribute name="documento" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nombre" attributeType="String" defaultValueString="" usesScalarValueType="NO"/>
+        <relationship name="ventas" toMany="YES" deletionRule="Deny" destinationEntity="Venta" inverseName="cliente" inverseEntity="Venta"/>
+    </entity>
+    <entity name="Venta" representedClassName="Venta" syncable="YES" codeGenerationType="manual/none">
+        <attribute name="anulada" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="cantidad" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descuento" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fecha" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="igv" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="motivoAnulacion" optional="YES" attributeType="String" usesScalarValueType="NO"/>
+        <attribute name="precioUnitario" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cliente" maxCount="1" deletionRule="Nullify" destinationEntity="Cliente" inverseName="ventas" inverseEntity="Cliente"/>
+        <relationship name="producto" maxCount="1" deletionRule="Nullify" destinationEntity="Producto" inverseName="ventas" inverseEntity="Producto"/>
+        <relationship name="vendedor" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="ventas" inverseEntity="Usuario"/>
+    </entity>
+    <elements>
+        <element name="Usuario" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="Producto" positionX="-63" positionY="180" width="128" height="149"/>
+        <element name="Cliente" positionX="-63" positionY="379" width="128" height="115"/>
+        <element name="Venta" positionX="208" positionY="180" width="128" height="224"/>
+    </elements>
+</model>
