@@ -21,6 +21,7 @@
 		A1000000000000000000000D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* AccountViewController.swift */; };
 		A1000000000000000000000E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* Assets.xcassets */; };
 		A1000000000000000000000F /* Ventas.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* Ventas.xcdatamodeld */; };
+		A10000000000000000000010 /* AnnulSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* AnnulSaleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B1000000000000000000000E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1000000000000000000000F /* Ventas.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; path = Ventas.xcdatamodeld; sourceTree = "<group>"; };
 		B10000000000000000000010 /* Ventas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ventas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000011 /* AnnulSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnulSaleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 		D10000000000000000000002 /* Ventas */ = {isa = PBXGroup; path = Ventas; sourceTree = "<group>"; children = (D10000000000000000000004 /* App */, D10000000000000000000005 /* Data */, D10000000000000000000006 /* Screens */, B1000000000000000000000E /* Assets.xcassets */, B1000000000000000000000F /* Ventas.xcdatamodeld */); };
 		D10000000000000000000004 /* App */ = {isa = PBXGroup; path = App; sourceTree = "<group>"; children = (B10000000000000000000001 /* AppDelegate.swift */, B10000000000000000000002 /* CoreDataStack.swift */); };
 		D10000000000000000000005 /* Data */ = {isa = PBXGroup; path = Data; sourceTree = "<group>"; children = (B10000000000000000000003 /* ManagedObjects.swift */, B10000000000000000000004 /* SalesService.swift */); };
-		D10000000000000000000006 /* Screens */ = {isa = PBXGroup; path = Screens; sourceTree = "<group>"; children = (B10000000000000000000005 /* CommonUI.swift */, B10000000000000000000006 /* AuthScreens.swift */, B10000000000000000000007 /* MainTabBarController.swift */, B10000000000000000000008 /* ProductsViewController.swift */, B10000000000000000000009 /* ClientsViewController.swift */, B1000000000000000000000A /* NewSaleViewController.swift */, B1000000000000000000000B /* SalesListViewController.swift */, B1000000000000000000000C /* DashboardViewController.swift */, B1000000000000000000000D /* AccountViewController.swift */); };
+		D10000000000000000000006 /* Screens */ = {isa = PBXGroup; path = Screens; sourceTree = "<group>"; children = (B10000000000000000000005 /* CommonUI.swift */, B10000000000000000000006 /* AuthScreens.swift */, B10000000000000000000007 /* MainTabBarController.swift */, B10000000000000000000008 /* ProductsViewController.swift */, B10000000000000000000009 /* ClientsViewController.swift */, B1000000000000000000000A /* NewSaleViewController.swift */, B1000000000000000000000B /* SalesListViewController.swift */, B1000000000000000000000C /* DashboardViewController.swift */, B1000000000000000000000D /* AccountViewController.swift */, B10000000000000000000011 /* AnnulSaleViewController.swift */); };
 		D10000000000000000000003 /* Products */ = {isa = PBXGroup; children = (B10000000000000000000010 /* Ventas.app */); name = Products; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
@@ -68,7 +70,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C10000000000000000000002 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* AppDelegate.swift in Sources */, A10000000000000000000002 /* CoreDataStack.swift in Sources */, A10000000000000000000003 /* ManagedObjects.swift in Sources */, A10000000000000000000004 /* SalesService.swift in Sources */, A10000000000000000000005 /* CommonUI.swift in Sources */, A10000000000000000000006 /* AuthScreens.swift in Sources */, A10000000000000000000007 /* MainTabBarController.swift in Sources */, A10000000000000000000008 /* ProductsViewController.swift in Sources */, A10000000000000000000009 /* ClientsViewController.swift in Sources */, A1000000000000000000000A /* NewSaleViewController.swift in Sources */, A1000000000000000000000B /* SalesListViewController.swift in Sources */, A1000000000000000000000C /* DashboardViewController.swift in Sources */, A1000000000000000000000D /* AccountViewController.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+		C10000000000000000000002 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* AppDelegate.swift in Sources */, A10000000000000000000002 /* CoreDataStack.swift in Sources */, A10000000000000000000003 /* ManagedObjects.swift in Sources */, A10000000000000000000004 /* SalesService.swift in Sources */, A10000000000000000000005 /* CommonUI.swift in Sources */, A10000000000000000000006 /* AuthScreens.swift in Sources */, A10000000000000000000007 /* MainTabBarController.swift in Sources */, A10000000000000000000008 /* ProductsViewController.swift in Sources */, A10000000000000000000009 /* ClientsViewController.swift in Sources */, A1000000000000000000000A /* NewSaleViewController.swift in Sources */, A1000000000000000000000B /* SalesListViewController.swift in Sources */, A1000000000000000000000C /* DashboardViewController.swift in Sources */, A1000000000000000000000D /* AccountViewController.swift in Sources */, A10000000000000000000010 /* AnnulSaleViewController.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */

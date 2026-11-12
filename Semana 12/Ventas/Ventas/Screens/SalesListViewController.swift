@@ -96,25 +96,12 @@ final class SalesListViewController: UITableViewController, UISearchResultsUpdat
         let sale = visibleSales[indexPath.row]
         guard !sale.anulada else { return nil }
         let annul = UIContextualAction(style: .destructive, title: "Anular") { [weak self] _, _, done in
-            self?.requestAnnul(sale)
+            guard let self else { done(false); return }
+            self.navigationController?.pushViewController(AnnulSaleViewController(user: self.user, sale: sale), animated: true)
             done(true)
         }
         annul.image = UIImage(systemName: "xmark.circle")
         return UISwipeActionsConfiguration(actions: [annul])
-    }
-
-    private func requestAnnul(_ sale: Venta) {
-        let alert = UIAlertController(title: "Anular venta", message: "Se devolverán \(sale.cantidad) unidades al inventario. Escribe el motivo.", preferredStyle: .alert)
-        alert.addTextField { field in field.placeholder = "Motivo de anulación"; field.autocapitalizationType = .sentences }
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Confirmar", style: .destructive) { [weak self] _ in
-            guard let self else { return }
-            do {
-                try SalesService.shared.annul(sale: sale, supervisor: self.user, reason: alert.textFields?.first?.text ?? "")
-                self.loadSales()
-            } catch { self.showError(error) }
-        })
-        present(alert, animated: true)
     }
 
     @objc private func chooseSeller() {

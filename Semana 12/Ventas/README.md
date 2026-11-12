@@ -15,6 +15,7 @@ La cuenta demo es solo para practicar. El laboratorio guarda la clave como texto
 
 - **Vendedor:** Productos, Clientes, Venta, Mis ventas y Cuenta.
 - **Supervisor:** Resumen, Ventas, Productos, Clientes y Cuenta.
+- El Supervisor abre la pantalla **Anular venta** desde el historial. El motivo es obligatorio y se devuelve el stock al confirmar.
 
 La interfaz se construye en código. No se necesita storyboard.
 
