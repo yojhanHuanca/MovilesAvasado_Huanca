@@ -1,9 +1,21 @@
-# Registro de uso de IA
+# Registro de consultas de IA
 
-## Consulta 1
+Este archivo resume las solicitudes principales realizadas durante el desarrollo. Los textos están resumidos y no son citas literales.
 
-- **Contexto:** Laboratorio 11, aplicación de ventas con UIKit y Core Data. El docente ya dio visto bueno al expediente.
-- **Tarea:** preparar la aplicación de Semana 12 con cuatro entidades, permisos por rol, reglas de venta, nueve pantallas y casos del enunciado.
-- **Restricciones:** registrar este trabajo como asistido por IA; conservar la entrega final en main; seguir las reglas de negocio y los casos del laboratorio.
-- **Formato esperado:** proyecto de Xcode, modelo Core Data, guía de ejecución y casos de prueba manuales.
-- **Qué se hizo con la respuesta:** se usa como base de implementación; el equipo debe revisar el código, ejecutarlo en Xcode y poder explicar cada pantalla y regla antes de entregarlo.
+## 1. Aplicación de ventas
+
+**Solicitud resumida:** preparar la aplicación de Semana 12 con UIKit y Core Data, siguiendo el laboratorio: entidades Usuario, Producto, Cliente y Venta; permisos según rol; registro e historial de ventas; control de stock; descuento, IGV y resumen para el Supervisor.
+
+**Apoyo recibido:** propuesta de estructura del proyecto, modelo de persistencia, pantallas y reglas de cálculo.
+
+**Revisión del equipo:** contrastar la implementación con el enunciado, probarla en Xcode y poder explicar las decisiones y el código.
+
+## 2. Anulación de ventas
+
+**Solicitud resumida:** presentar la anulación como un flujo propio, pedir un motivo obligatorio y devolver las unidades al inventario al confirmar.
+
+**Apoyo recibido:** pantalla de anulación vinculada al historial; las ventas anuladas se excluyen del resumen y del cálculo de categoría del cliente.
+
+## Verificación pendiente
+
+La sintaxis y la estructura del proyecto se revisaron. Falta compilar y probar la aplicación en Xcode y en el simulador.
